@@ -22,3 +22,9 @@ terraform apply -auto-approve
 
 terraform destroy
 ```
+
+### Login
+
+```console
+ssh ubuntu@192.168.123.90 -o IdentitiesOnly=yes -i ~/.ssh/terraformlibvirt
+```
