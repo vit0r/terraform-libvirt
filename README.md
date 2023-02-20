@@ -1,7 +1,8 @@
 # Terraform libvirt - local tests KVM server
 
-1. [provider docs](https://registry.terraform.io/providers/dmacvicar/libvirt/latest/docs)
-2. [cloud-init](https://cloudinit.readthedocs.io/en/latest/reference/examples.html)
+1. [virtualization-libvirt](https://ubuntu.com/server/docs/virtualization-libvirt)
+2. [provider docs](https://registry.terraform.io/providers/dmacvicar/libvirt/latest/docs)
+3. [cloud-init](https://cloudinit.readthedocs.io/en/latest/reference/examples.html)
 
 ## Usage
 
