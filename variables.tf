@@ -3,3 +3,9 @@ variable "libvirt_system" {
   default     = "qemu:///system"
   description = "(optional) default is qemu:///system"
 }
+
+variable "default_pool_name" {
+  type        = string
+  default     = "default"
+  description = "(optional) default pool name is default"
+}
