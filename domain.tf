@@ -1,6 +1,6 @@
 resource "libvirt_volume" "ubuntu_domain_vol" {
   name             = format("%s-vol.qcow2", local.domain_name)
-  base_volume_id   = libvirt_volume.ubuntu_2204_amd64.id
+  base_volume_id   = libvirt_volume.ubuntu_amd64.id
   size             = 26843545600 # 25gb
   base_volume_pool = var.default_pool_name
 }
