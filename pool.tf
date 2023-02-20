@@ -1,5 +1,5 @@
-resource "libvirt_pool" "libvirt_pool" {
-  name = "libvirtpool"
-  type = "dir"
-  path = "/libvirtpool"
-}
+# resource "libvirt_pool" "libvirt_otherpool_dir" {
+#   name = "otherpool"
+#   type = "dir"
+#   path = "/var/lib/libvirt/otherpool"
+# }
