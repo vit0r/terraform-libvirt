@@ -9,3 +9,8 @@ variable "default_pool_name" {
   default     = "default"
   description = "(optional) default pool name is default"
 }
+
+variable "domains_count" {
+  type = number
+  default = 3
+}
