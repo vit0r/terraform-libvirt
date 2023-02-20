@@ -7,4 +7,7 @@ resource "libvirt_network" "default_network" {
     enabled    = true
     local_only = true
   }
+  dhcp {
+    enabled = true
+  }
 }
