@@ -1,6 +1,8 @@
-resource "libvirt_volume" "domain_vol" {
-  name           = format("%s-vol.qcow2", local.domain_name)
-  base_volume_id = libvirt_volume.ubuntu_2204_amd64.id
+resource "libvirt_volume" "ubuntu_domain_vol" {
+  name             = format("%s-vol.qcow2", local.domain_name)
+  base_volume_id   = libvirt_volume.ubuntu_2204_amd64.id
+  size             = 26843545600 # 25gb
+  base_volume_pool = "default"
 }
 
 resource "libvirt_domain" "ubuntu_test" {
@@ -11,7 +13,7 @@ resource "libvirt_domain" "ubuntu_test" {
   autostart  = false
   qemu_agent = true
   disk {
-    volume_id = libvirt_volume.domain_vol.id
+    volume_id = libvirt_volume.ubuntu_domain_vol.id
     scsi      = "true"
   }
   network_interface {
@@ -39,5 +41,9 @@ resource "libvirt_domain" "ubuntu_test" {
   #     backend_type    = "emulator"
   #     # backend_version = "2.0"
   #   }
+  boot_device {
+    dev = ["hd"]
+  }
   cmdline = []
+
 }
