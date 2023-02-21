@@ -10,26 +10,31 @@ variable "default_pool_name" {
   description = "(optional) default pool name is default"
 }
 
-variable "domains_count" {
-  type = number
-  default = 1
+variable "ubuntu_domains_count" {
+  type    = number
+  default = 4
+}
+
+variable "centos_domains_count" {
+  type    = number
+  default = 0
 }
 
 variable "libvirt_network_name" {
-  type = string
+  type    = string
   default = "boomkvmlibvirt-net"
 }
 variable "libvirt_network_cidr" {
-  type=string
+  type    = string
   default = "192.168.123.0/24"
 }
 
 variable "libvirt_network_domain" {
-  type = string
+  type    = string
   default = "test.local"
 }
 
 variable "libvirt_network_mode" {
-  type = string
+  type    = string
   default = "nat"
 }

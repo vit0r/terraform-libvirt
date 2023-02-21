@@ -3,20 +3,20 @@ locals {
 }
 
 resource "libvirt_volume" "ubuntu_domain_vol" {
-  count            = var.domains_count
+  count            = var.ubuntu_domains_count
   name             = format("%s-%s-vol.qcow2", local.domain_name_ubuntu, count.index)
-  base_volume_id   = libvirt_volume.ubuntu2204_amd64.id
+  base_volume_id   = libvirt_volume.ubuntu2004_amd64.id
   size             = 26843545600 # 25gb
   base_volume_pool = var.default_pool_name
 }
 
 resource "libvirt_domain" "ubuntu_test" {
-  count      = var.domains_count
+  count      = var.ubuntu_domains_count
   name       = format("%s-%s", local.domain_name_ubuntu, count.index)
   cloudinit  = libvirt_cloudinit_disk.cloud_init.id
   arch       = "x86_64"
   vcpu       = "2"
-  memory     = "2048"
+  memory     = "4048"
   autostart  = false
   qemu_agent = true
   disk {

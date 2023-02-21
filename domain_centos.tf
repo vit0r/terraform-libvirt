@@ -3,7 +3,7 @@ locals {
 }
 
 resource "libvirt_volume" "centos9_domain_vol" {
-  count            = var.domains_count
+  count            = var.centos_domains_count
   name             = format("%s-%s-vol.qcow2", local.domain_name_centos, count.index)
   base_volume_id   = libvirt_volume.centos9_amd64.id
   size             = 53687091200 # 50gb
@@ -11,7 +11,7 @@ resource "libvirt_volume" "centos9_domain_vol" {
 }
 
 resource "libvirt_domain" "centos9_test" {
-  count      = var.domains_count
+  count      = var.centos_domains_count
   name       = format("%s-%s", local.domain_name_centos, count.index)
   arch       = "x86_64"
   vcpu       = "2"
