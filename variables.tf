@@ -12,7 +12,7 @@ variable "default_pool_name" {
 
 variable "ubuntu_domains_count" {
   type    = number
-  default = 4
+  default = 2
 }
 
 variable "centos_domains_count" {
