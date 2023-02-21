@@ -1,8 +1,8 @@
-resource "libvirt_network" "default_network" {
-  name      = "default_network"
-  mode      = "nat"
-  domain    = "libvirt.test.local"
-  addresses = ["192.168.123.0/24"]
+resource "libvirt_network" "network" {
+  name      = var.libvirt_network_name
+  mode      = var.libvirt_network_mode
+  domain    = var.libvirt_network_domain
+  addresses = [var.libvirt_network_cidr]
   dns {
     enabled    = true
     local_only = true

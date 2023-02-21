@@ -1,18 +1,22 @@
+locals {
+  domain_name_ubuntu = "ubuntu-vm"
+}
+
 resource "libvirt_volume" "ubuntu_domain_vol" {
   count            = var.domains_count
-  name             = format("%s-%s-vol.qcow2", local.domain_name, count.index)
-  base_volume_id   = libvirt_volume.ubuntu_amd64.id
+  name             = format("%s-%s-vol.qcow2", local.domain_name_ubuntu, count.index)
+  base_volume_id   = libvirt_volume.ubuntu2204_amd64.id
   size             = 26843545600 # 25gb
   base_volume_pool = var.default_pool_name
 }
 
 resource "libvirt_domain" "ubuntu_test" {
   count      = var.domains_count
-  name       = format("%s-%s", local.domain_name, count.index)
+  name       = format("%s-%s", local.domain_name_ubuntu, count.index)
   cloudinit  = libvirt_cloudinit_disk.cloud_init.id
   arch       = "x86_64"
-  vcpu       = "4"
-  memory     = "4048"
+  vcpu       = "2"
+  memory     = "2048"
   autostart  = false
   qemu_agent = true
   disk {
@@ -20,9 +24,9 @@ resource "libvirt_domain" "ubuntu_test" {
     scsi      = "true"
   }
   network_interface {
-    network_id = libvirt_network.default_network.id
-    hostname   = format("%s-%s-net", local.domain_name,count.index)
-    addresses  = [format("192.168.123.%s", count.index + 2)]
+    network_id = libvirt_network.network.id
+    hostname   = format("%s%s", local.domain_name_ubuntu, count.index)
+    addresses  = [format("192.168.123.%s", count.index + 10)]
   }
   graphics {
     type        = "spice"

@@ -9,7 +9,7 @@
 ### ssh-keygen
 
 ```console
-ssh-keygen -t ecdsa -b 521 -C "ubuntu" -f ~/.ssh/terraformlibvirt
+ssh-keygen -t ecdsa -b 521 -C "topeira" -f ~/.ssh/terraformlibvirt
 ```
 
 ### Terraform
@@ -27,5 +27,9 @@ terraform destroy
 ### Login
 
 ```console
-ssh ubuntu@192.168.123.90 -o IdentitiesOnly=yes -i ~/.ssh/terraformlibvirt
+# ubuntu
+ssh ubuntu@192.168.123.X -o IdentitiesOnly=yes -i ~/.ssh/terraformlibvirt
+
+# centos
+ssh cloud-user@192.168.123.X -o IdentitiesOnly=yes -i ~/.ssh/terraformlibvirt
 ```
