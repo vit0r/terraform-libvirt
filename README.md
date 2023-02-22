@@ -10,7 +10,7 @@
 ### ssh-keygen
 
 ```console
-ssh-keygen -t ecdsa -b 521 -C "topeira" -f ~/.ssh/terraformlibvirt
+ssh-keygen -t ecdsa -b 521 -C "terraformlibvirt" -f ~/.ssh/terraformlibvirt
 ```
 
 ### Terraform
