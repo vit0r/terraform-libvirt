@@ -10,9 +10,14 @@ variable "default_pool_name" {
   description = "(optional) default pool name is default"
 }
 
-variable "ubuntu_domains_count" {
+variable "ubuntu2004_domains_count" {
   type    = number
-  default = 2
+  default = 0
+}
+
+variable "ubuntu2204_domains_count" {
+  type    = number
+  default = 3
 }
 
 variable "centos_domains_count" {

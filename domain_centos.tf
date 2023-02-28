@@ -5,7 +5,7 @@ locals {
 resource "libvirt_volume" "centos9_domain_vol" {
   count            = var.centos_domains_count
   name             = format("%s-%s-vol.qcow2", local.domain_name_centos, count.index)
-  base_volume_id   = libvirt_volume.centos9_amd64.id
+  base_volume_id   = libvirt_volume.centos9_amd64.0.id
   size             = 53687091200 # 50gb
   base_volume_pool = var.default_pool_name
 }
