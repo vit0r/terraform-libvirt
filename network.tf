@@ -3,6 +3,7 @@ resource "libvirt_network" "network" {
   mode      = var.libvirt_network_mode
   domain    = var.libvirt_network_domain
   addresses = [var.libvirt_network_cidr]
+  autostart = true
   dns {
     enabled    = true
     local_only = true

@@ -10,7 +10,7 @@ resource "libvirt_volume" "centos9_domain_vol" {
   base_volume_pool = var.default_pool_name
 }
 
-resource "libvirt_domain" "centos9_test" {
+resource "libvirt_domain" "centos9" {
   count      = var.centos_domains_count
   name       = format("%s-%s", local.domain_name_centos, count.index)
   arch       = "x86_64"
@@ -21,7 +21,7 @@ resource "libvirt_domain" "centos9_test" {
   cloudinit  = libvirt_cloudinit_disk.cloud_init.id
 
   disk {
-    volume_id = libvirt_volume.centos9_domain_vol[count.index].id
+    volume_id = libvirt_volume.centos9_domain_vol.0.id
     scsi      = "true"
   }
   network_interface {

@@ -12,12 +12,12 @@ variable "default_pool_name" {
 
 variable "ubuntu2004_domains_count" {
   type    = number
-  default = 0
+  default = 3
 }
 
 variable "ubuntu2204_domains_count" {
   type    = number
-  default = 3
+  default = 0
 }
 
 variable "centos_domains_count" {
@@ -27,7 +27,7 @@ variable "centos_domains_count" {
 
 variable "libvirt_network_name" {
   type    = string
-  default = "boomkvmlibvirt-net"
+  default = "libvirttf"
 }
 variable "libvirt_network_cidr" {
   type    = string
@@ -36,7 +36,7 @@ variable "libvirt_network_cidr" {
 
 variable "libvirt_network_domain" {
   type    = string
-  default = "test.local"
+  default = "libvirttf.local"
 }
 
 variable "libvirt_network_mode" {
